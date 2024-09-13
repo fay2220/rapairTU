@@ -1,0 +1,34 @@
+GET http://localhost:3000/users
+
+###
+
+POST http://localhost:3000/api/login
+Content-Type: application/json
+// front end login json model use student id 
+{
+    "email": "Jesse.Mayert@gmail.com",
+    "password": "JLG9i33sAP"
+}
+
+###
+
+GET http://localhost:3000/api/requests
+
+
+###
+GET http://localhost:3000/api/requests/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmRkNDY2Yzg3YzJmZDAxMzJlMjdiMGEiLCJ1c2VybmFtZSI6IkpvcmR5X1BhZGJlcmciLCJlbWFpbCI6Ikplc3NlLk1heWVydEBnbWFpbC5jb20iLCJpYXQiOjE3MjYxNjcwOTIsImV4cCI6MTcyNjE2NzEwN30.bFQTs3imvahTO3rt25vi8b02NhkqUuaSoyCNIzFnzfc
+
+
+###
+POST http://localhost:3000/api/createRequest
+Content-Type: application/json
+// front end create request json model
+{
+  "userId": "66dd466c87c2fd0132e27b0a",
+  "username": "Jordy_Padberg",
+  "image_path": "/path",
+  "detail_message": "Hello world",
+  "location": "earth",
+  "request_status": "unfinish"
+}
