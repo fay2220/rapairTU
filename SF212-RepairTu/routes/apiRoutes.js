@@ -8,6 +8,6 @@ const authenticateToken = require('./authenticateToken');
 router.get('/requests', request);
 router.post('/createRequest', request);
 router.post('/login', login);
-// router.get('/requests/login', request);
+router.get('/requests/login', request);
 
 module.exports = router;

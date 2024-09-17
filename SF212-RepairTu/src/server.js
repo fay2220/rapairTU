@@ -3,13 +3,13 @@ const express = require('express');
 const route = require('../routes/apiRoutes')
 const app = express();
 const Users = require("../models/user");
-const connectDB = require('./dbconfig');
+const { connectAppDB } = require('./dbconfig');
 // const insertRandomUsers = require('../models/insertRandomUsers')
 
 //tell express to use json
 app.use(express.json());
 //connect database
-connectDB();
+connectAppDB();
 
 
 
