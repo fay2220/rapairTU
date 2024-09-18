@@ -5,28 +5,42 @@ GET http://localhost:3000/users
 POST http://localhost:3000/api/login
 Content-Type: application/json
 // front end login json model use student id 
+
 {
-    "email": "Jesse.Mayert@gmail.com",
-    "password": "JLG9i33sAP"
+    "studentId": "1234567890",
+    "password": "1234"
 }
 
 ###
 
 GET http://localhost:3000/api/requests
+//see requests list
 
 
 ###
-GET http://localhost:3000/api/requests/login
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmRkNDY2Yzg3YzJmZDAxMzJlMjdiMGEiLCJ1c2VybmFtZSI6IkpvcmR5X1BhZGJlcmciLCJlbWFpbCI6Ikplc3NlLk1heWVydEBnbWFpbC5jb20iLCJpYXQiOjE3MjYxNjcwOTIsImV4cCI6MTcyNjE2NzEwN30.bFQTs3imvahTO3rt25vi8b02NhkqUuaSoyCNIzFnzfc
+POST http://localhost:3000/api/login/token 
+Content-Type: application/json
 
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmVhNzE3Y2ZjNDI5Y2E3ZjViNGQxMDciLCJ1c2VybmFtZSI6IuC4iuC4reC4muC5gOC4o-C4teC4ouC4mSDguYDguKPguLXguKLguJnguJTguLUiLCJpYXQiOjE3MjY2NDM2OTZ9.vpLSdHUEMMyVV8P45Te-azcc_eyOT3NShyua9JLEt_E"
+}
+
+###
+GET http://localhost:3000/api/requests/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmVhNzE3Y2ZjNDI5Y2E3ZjViNGQxMDciLCJ1c2VybmFtZSI6IuC4iuC4reC4muC5gOC4o-C4teC4ouC4mSDguYDguKPguLXguKLguJnguJTguLUiLCJpYXQiOjE3MjY2NDM5MzQsImV4cCI6MTcyNjY0Mzk0OX0.KDtY9RMKjxzXxs2H_QkWEd6TT7D18WsaiQxKNHBdsxQ
+
+
+###
+POST http://localhost:3000/api/logout
 
 ###
 POST http://localhost:3000/api/createRequest
 Content-Type: application/json
-// front end create request json model
+# front end create request json model
+
 {
-  "userId": "66dd466c87c2fd0132e27b0a",
-  "username": "Jordy_Padberg",
+  "userId": "66ea717cfc429ca7f5b4d107",
+  "username": "ชอบเรียน เรียนดี",
   "image_path": "/path",
   "detail_message": "Hello world",
   "location": "earth",

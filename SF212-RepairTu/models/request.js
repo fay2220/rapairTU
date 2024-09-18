@@ -30,6 +30,6 @@ const requestSchema = new mongoose.Schema({
         // required: false,
         default: Date.now
     }
-})
+}, { collection:"requestList" })
 
-module.exports = mongoose.model('requests', requestSchema);
+module.exports = mongoose.model('requestList', requestSchema);

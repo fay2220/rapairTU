@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 
+/*
+{
+    username,
+    student id,
+    password,
+    role,
+}
+*/
 const userSchema = new mongoose.Schema({
     username: {
         type: String,

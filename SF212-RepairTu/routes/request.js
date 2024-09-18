@@ -1,10 +1,23 @@
 const express = require('express');
 const RequestM = require('../models/request');
 const authenticateToken = require('./authenticateToken');
+const multer = require('multer')
 const router = express();
 
+//multer config
+const storage = multer.diskStorage({
+    destination: function (req, file, callback) {
+        callback(null, '../repairtuImage');
+    },
+    filename: function (req, res, callback) {
+        callback(null, file.originalname);
+    }
+})
+
+const upload = multer({ storage });
+
 //insert request json from frontend to database
-router.post('/createRequest', async (req, res) => {
+router.post('/createRequest', upload.array('image'), async (req, res) => {
     const request = req.body;
     try {
         const insertData = await RequestM.insertMany(request);
