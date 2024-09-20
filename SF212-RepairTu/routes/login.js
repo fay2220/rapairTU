@@ -3,7 +3,7 @@ const express = require('express');
 const UsersMD = require('../models/user');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const refreshTokenM = require('../models/refreshToken');
+// const refreshTokenM = require('../models/refreshToken');
 
 
 router.post('/login', async (req, res) => {

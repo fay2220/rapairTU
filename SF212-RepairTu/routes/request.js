@@ -7,16 +7,17 @@ const router = express();
 //multer config
 const storage = multer.diskStorage({
     destination: function (req, file, callback) {
-        callback(null, '../repairtuImage');
+        callback(null, './repairtuImage');
     },
-    filename: function (req, res, callback) {
-        callback(null, file.originalname);
+    filename: function (req, file, callback) {
+        callback(null, file.originalname+"_"+req.username);
     }
 })
 
 const upload = multer({ storage });
 
 //insert request json from frontend to database
+// upload.array('name must be match with frontend name')
 router.post('/createRequest', upload.array('image'), async (req, res) => {
     const request = req.body;
     try {
