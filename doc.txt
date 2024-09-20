@@ -1,0 +1,1 @@
+npm install axios เป็น library ที่ช่วยในการส่งข้อมูล api
