@@ -43,8 +43,10 @@ export const FormEditProduct = () => {
   }
     const submit_click = async (form) => { //บันทึกข้อมูล พร้อมส่งไปยังหลังบ้าน 
         form.preventDefault()
+
         console.log(data)
         console.log(previousFile)
+        
         const formWithImageData = new FormData()
         for (const key in data){ 
         formWithImageData.append(key,data[key]) 

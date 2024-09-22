@@ -37,7 +37,7 @@ export const FormProduct = () => {
   }
 //CRTL+K --> CRTL+C = comment หลายบรรทัดพร้อมกัน
     const submit_click = async (Data) => { //บันทึกข้อมูล พร้อมส่งไปยังหลังบ้าน 
-      Data.preventDefault()
+      
 
       const formWithImageData = new FormData()
       for (const key in form){ //เป็นการลูปเข้าไปใน key ของข้อมูล name,detail,location,file
@@ -116,7 +116,6 @@ export const FormProduct = () => {
             <td>{item.file}</td>
             <td onClick={()=>removeData(item._id)}>delete </td>
             <td><Link to={'/edit/'+item._id}>edit</Link></td>
-            
             
           </tr>
         )
