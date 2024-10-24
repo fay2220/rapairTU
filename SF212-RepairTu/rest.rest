@@ -13,9 +13,12 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/api/requests
+GET http://localhost:3000/api/upload
 //see requests list
 
+###
+
+POST http://localhost:3000/api/upload
 
 ###
 POST http://localhost:3000/api/login/token 

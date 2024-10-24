@@ -9,18 +9,20 @@ const jwt = require('jsonwebtoken');
 router.post('/login', async (req, res) => {
     try {
         // check user exit?
-        const check = await UsersMD.findOne({studentId: req.body.studentId});
+        console.log(req.body)
+        const check = await UsersMD.findOne({ studentId: req.body.studentId });
+        console.log(check)
         if (!check) {
-            res.status(404).json({ message: "ID not found."});
+            res.status(404).json({ message: "ID not found." });
         }
         // console.log(check.username)
-        if (check.password === req.body.password) {
+        else if (check.password === req.body.password) {
 
             //user autherization
-            const user = {userId: check._id.toString(), username: check.username, studentId: check.studentId};
-            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15s'})
+            const user = { userId: check._id.toString(), username: check.username, studentId: check.studentId };
+            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15s' })
             const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
-            
+
             //refreshToken store in database for each user
             // await insertRefreshToken(refreshToken, check._id.toString());
 
@@ -37,12 +39,12 @@ router.post('/login', async (req, res) => {
 
 router.post('/login/token', (req, res) => {
     const { refreshToken } = req.body;
-    if(!refreshToken) res.status(401).json({ message: "Refresh Token required." });
+    if (!refreshToken) res.status(401).json({ message: "Refresh Token required." });
 
     jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
-        if (err) return res.status(403).json({ message: "Invalid or expired token"});
-        const userData = {userId: user.userId, username: user.username, stuentId: user.studentId}
-        const accessToken = jwt.sign(userData, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15s'});
+        if (err) return res.status(403).json({ message: "Invalid or expired token" });
+        const userData = { userId: user.userId, username: user.username, stuentId: user.studentId }
+        const accessToken = jwt.sign(userData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15s' });
         res.json({ accessToken: accessToken })
     });
 })

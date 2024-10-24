@@ -4,13 +4,14 @@ const route = require('../routes/apiRoutes')
 const app = express();
 const Users = require("../models/user");
 const { connectAppDB } = require('./dbconfig');
+const cors = require('cors');
 // const insertRandomUsers = require('../models/insertRandomUsers')
 
+app.use(cors());
 //tell express to use json
 app.use(express.json());
 //connect database
 connectAppDB();
-
 
 
 app.get('/users', async (req, res) => {

@@ -9,7 +9,7 @@ const insertRandomUsers = async (count) => {
     for (let i = 0; i < count; i++) {
         users.push({
             username: faker.internet.userName(),
-            email: faker.internet.email(),
+            studentId: faker.internet.password(),
             password: faker.internet.password(),
             role: "user"
         });
